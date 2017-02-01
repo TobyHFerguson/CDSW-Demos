@@ -8,5 +8,9 @@ The source ipython notebook can be displayed as slides. If you have ipython
 installed you can serve the slides locally with:
 
     ipython nbconvert ds-for-telco.ipynb --to slides --post serve
+    
+    
+Blog: 
+http://blog.cloudera.com/blog/2016/02/how-to-predict-telco-churn-with-apache-spark-mllib/
 
 
