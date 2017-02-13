@@ -40,7 +40,7 @@ on the data.
 val dataWithoutHeader = spark.read.
       option("inferSchema", true).
       option("header", false).
-      csv("hdfs:///user/nisha/Data/covtype.data")
+      csv("hdfs:///tmp/Covtype/covtype.data")
 val colNames = Seq(
         "Elevation", "Aspect", "Slope",
         "Horizontal_Distance_To_Hydrology", "Vertical_Distance_To_Hydrology",
