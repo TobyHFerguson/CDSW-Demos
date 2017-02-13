@@ -330,9 +330,9 @@ barChart.getPlot().setBackgroundPaint(Color.WHITE)
 barChart.setBorderVisible(false)
 import org.jfree.chart.ChartUtilities
 import java.io.File
-val varImpChart = new File( "./images/Ch04RandomForest.jpeg" )
+val varImpChart = new File( "./advanced-analytics-with-spark/images/Ch04RandomForest.jpeg" )
 ChartUtilities.saveChartAsJPEG(varImpChart, barChart, 1600, 600)
 /*
-![alt text](./images/Ch04RandomForest.jpeg)
+![alt text](./advanced-analytics-with-spark/images/Ch04RandomForest.jpeg)
 */
    
