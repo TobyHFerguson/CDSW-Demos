@@ -14,6 +14,9 @@ Created by Jordan Volz (jordan.volz@cloudera.com)
 
 <b>Recommended Session Sizes</b>: 4 CPU, 8 GB RAM
 
+<b>Recommended Jobs/Pipeline</b>:<br>
+data-processing.scala --> analysis.py --> machine-learning.scala
+
 <b>Notes</b>: <br>
 1. Raw stats are in /data<br>
 2. data-processing.scala --> data transformations + table creations<br>
