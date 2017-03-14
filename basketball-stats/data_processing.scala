@@ -14,13 +14,21 @@
 //SET-UP
 //********************
 
-//process files so that each line includes the year
-for (i <- 1980 to 2016){
-     println(i)
-     val yearStats = sc.textFile(s"/tmp/BasketballStats/leagues_NBA_$i*").repartition(sc.defaultParallelism)
-     yearStats.filter(x => x.contains(",")).map(x =>  (i,x)).saveAsTextFile(s"/tmp/BasketballStatsWithYear/$i/")
+def dirExists(hdfsDirectory: String): Boolean = {
+  val hadoopConf = new org.apache.hadoop.conf.Configuration()
+  val fs = org.apache.hadoop.fs.FileSystem.get(hadoopConf)
+  val exists = fs.exists(new org.apache.hadoop.fs.Path(hdfsDirectory))
+  return exists
 }
 
+if (!dirExists("/tmp/BasketballStatsWithYear/")){
+  //process files so that each line includes the year
+  for (i <- 1980 to 2016){
+       println(i)
+       val yearStats = sc.textFile(s"/tmp/BasketballStats/leagues_NBA_$i*").repartition(sc.defaultParallelism)
+       yearStats.filter(x => x.contains(",")).map(x =>  (i,x)).saveAsTextFile(s"/tmp/BasketballStatsWithYear/$i/")
+  }
+}
 
 //********************
 //CODE
@@ -343,7 +351,7 @@ dfPlayersT.registerTempTable("tPlayers")
 val dfPlayers=spark.sql("select age-min_age as exp,tPlayers.* from tPlayers join (select name,min(age)as min_age from tPlayers group by name) as t1 on tPlayers.name=t1.name order by tPlayers.name, exp ")
 
 //save as table
-spark.sql("CREATE DATABASE basketball")
+spark.sql("CREATE DATABASE IF NOT EXISTS basketball")
 dfPlayers.write.mode("overwrite").saveAsTable("basketball.Players")
 //filteredStats.unpersist()
 
