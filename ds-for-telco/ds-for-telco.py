@@ -1,6 +1,6 @@
 
 
-# ##Load the data
+# # Load the data
 # 
 # We need to load data from a file in to a Spark DataFrame.
 # Each row is an observed customer, and each column contains
@@ -83,11 +83,12 @@ sample_data = churn_data.sample(False, 0.5, 83).toPandas()
 sample_data.transpose().head(21)
 
 
-# ## DataTypes
+# # DataTypes
 # 
-# ![datatypes where continuous and integer are subtypes of numeric data and distinct from the categorical type](slides/datatypes.png)
-# 
-# 
+import urllib
+from IPython.display import Image
+Image(filename="ds-for-telco/slides/datatypes.png")
+# datatypes where continuous and integer are subtypes of numeric data and distinct from the categorical type(slides/datatypes.png)
 
 # The type of visualization we do depends on the data type, so lets define what columns have different properties first:
 
@@ -101,7 +102,7 @@ numeric_cols = ["account_length", "number_vmail_messages", "total_day_minutes",
 categorical_cols = ["state", "international_plan", "voice_mail_plan", "area_code"]
 
 
-# ## Seaborn
+# # Seaborn
 # 
 # Seaborn is a library for statistical visualization that is built on matplotlib.
 # 
@@ -112,10 +113,10 @@ categorical_cols = ["state", "international_plan", "voice_mail_plan", "area_code
 # 
 # 
 # 
-# 
-# ![Screen capture of Seaborn home page.](slides/seaborn_home_page.png)
+Image(filename="ds-for-telco/slides/seaborn_home_page.png")
+# Screen capture of Seaborn home page.
 
-# ## Feature Distributions
+# #Feature Distributions
 # 
 # We want to examine the distribution of our features, so start with them one at a time.
 # 
@@ -137,7 +138,7 @@ sb.distplot(sample_data['number_customer_service_calls'], kde=False)
 sb.boxplot(x="churned", y="number_customer_service_calls", data=sample_data)
 
 
-# ## Joint Distributions
+# # Joint Distributions
 # 
 # Looking at joint distributions of data can also tell us a lot, particularly about redundant features. [Seaborn's PairPlot](http://stanford.edu/~mwaskom/software/seaborn/generated/seaborn.pairplot.html#seaborn.pairplot) let's us look at joint distributions for many variables at once.
 
@@ -177,7 +178,8 @@ sb.pairplot(sample_data[reduced_numeric_cols + ['churned']], hue="churned", pale
 # 
 # The overall process:
 # 
-# ![Model building diagraming showing input data split into train and test data. The training data is aligned with a feature extraction and model training set, which outputs a fitter model. The testing data alignes with a feature extraction, scoring/model application, and model evaluation step.](slides/model flow.png)
+Image(filename="ds-for-telco/slides/model flow.png")
+# Model building diagraming showing input data split into train and test data. The training data is aligned with a feature extraction and model training set, which outputs a fitter model. The testing data alignes with a feature extraction, scoring/model application, and model evaluation step
 
 # # Feature Extraction and Model Training
 # 
@@ -209,7 +211,7 @@ assembler = VectorAssembler(
     outputCol = 'features')
 
 
-# ## Model Training
+# # Model Training
 # 
 # We can now define our classifier and pipeline. With this done, we can split our labeled data in train and test sets and fit a model.
 # 
@@ -250,7 +252,9 @@ model = pipeline.fit(train)
 #     * .60-.70 = poor (D)
 #     * .50-.60 = fail (F)
 # 
-# ![example of an roc curve](slides/roc_curve.png)
+Image(filename="ds-for-telco/slides/roc_curve.png")
+
+# example of an roc curve
 
 
 from pyspark.ml.evaluation import BinaryClassificationEvaluator
@@ -282,6 +286,6 @@ auroc = evaluator.evaluate(predictions, {evaluator.metricName: "areaUnderROC"})
 
 # If you need to inspect the predictions...
 
-predictions.toPandas().head(25)
+#predictions.toPandas().head(25)
 
 
