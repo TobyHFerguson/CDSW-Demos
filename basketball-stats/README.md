@@ -1,30 +1,29 @@
 # BasketballStats
-Basketball Statistics Demo
+Basketball Statistics Demo<br>
 Created by Jordan Volz (jordan.volz@cloudera.com)
 
-<b>Status</b>: Demo Ready
+<b>Status</b>: Demo Ready<br>
 <b>Use Case</b>: End-to-end spark workflow: data processing, ad-hoc analytics, and predictive analytics
 
-<b>Steps</b>:
-1. Open a terminal and run setup.sh
-2. Create a Scala Session and run data-processing.scala
-3. Create a Python Session and run analysis.py
-4. Return to the Scala Session and run machine-learning.scala
-5. When finished, open a terminal and run cleanup.sh
+<b>Steps</b>:<br>
+1. Open a terminal and run setup.sh<br>
+2. Create a Scala Session and run data-processing.scala<br>
+3. Create a Python Session and run analysis.py<br>
+4. Return to the Scala Session and run machine-learning.scala<br>
+5. When finished, open a terminal and run cleanup.sh<br>
 
 <b>Recommended Session Sizes</b>: 4 CPU, 8 GB RAM
-Raw stats are in /data. 
 
-<b>Notes</b>: 
-1. Raw stats are in /data
-2. data-processing.scala --> data transformations + table creations
-3. analysis.py --> ad-hoc analysis with pandas
-4. machine-learning.scala --> Regression analysis with spark mllib
-5. Your user will need write access into Hive. 
+<b>Notes</b>: <br>
+1. Raw stats are in /data<br>
+2. data-processing.scala --> data transformations + table creations<br>
+3. analysis.py --> ad-hoc analysis with pandas<br>
+4. machine-learning.scala --> Regression analysis with spark mllib<br>
+5. Your user will need write access into Hive. <br>
 
-<b>Demo Script</b>
+<b>Demo Script</b><br>
 http://github.mtv.cloudera.com/foe/BasketballStats/blob/master/BasketballStatsDemoScript.docx
 
-<b>Related Content</b>:
-http://blog.cloudera.com/blog/2016/06/how-to-analyze-fantasy-sports-using-apache-spark-and-sql/ 
+<b>Related Content</b>:<br>
+http://blog.cloudera.com/blog/2016/06/how-to-analyze-fantasy-sports-using-apache-spark-and-sql/ <br>
 http://blog.cloudera.com/blog/2016/06/how-to-analyze-fantasy-sports-with-apache-spark-and-sql-part-2-data-exploration/
