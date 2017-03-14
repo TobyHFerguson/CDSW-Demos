@@ -10,7 +10,7 @@ Created by Jordan Volz (jordan.volz@cloudera.com)
 2. Create a Scala Session and run data-processing.scala<br>
 3. Create a Python Session and run analysis.py<br>
 4. Return to the Scala Session and run machine-learning.scala<br>
-5. When finished, open a terminal and run cleanup.sh<br>
+5. When finished, run cleanup.scala in your spark session and cleanup.sh in the terminal<br>
 
 <b>Recommended Session Sizes</b>: 4 CPU, 8 GB RAM
 
