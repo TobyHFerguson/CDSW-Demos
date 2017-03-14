@@ -1,16 +1,28 @@
 # ds-for-telco
-Source material for Data Science for Telecom Tutorial at Strata Singapore 2015
-
+Created by Juliet Houghland + Sandy Ryza (juliet@cloudera.com)<br>
 The source notebook demonstrates building a churn prediction model using Spark
 and Spark MlLib's pipeline API for cross validation and model tuning. The Pipeline API is available in PySpark in version 1.6 or higher.
 
-The source ipython notebook can be displayed as slides. If you have ipython
-installed you can serve the slides locally with:
+<b>Status</b>: Demo Ready<br>
+<b>Use Case</b>: Telco Churn Prediction
 
-    ipython nbconvert ds-for-telco.ipynb --to slides --post serve
-    
-    
-Blog: 
+<b>Steps</b>:<br>
+1. Open a terminal and run setup.sh<br>
+2. Create a Python Session and run ds-for-telco.py<br>
+5. When finished, run cleanup.sh in the terminal<br>
+
+<b>Recommended Session Sizes</b>: 2 CPU, 4 GB RAM
+
+<b>Recommended Jobs/Pipeline</b>:<br>
+None
+
+<b>Notes</b>: <br>
+1. Raw stats are in /data<br>
+
+<b>Demo Script</b><br>
+TBD
+
+<b>Related Content</b>:<br>
 http://blog.cloudera.com/blog/2016/02/how-to-predict-telco-churn-with-apache-spark-mllib/
 
 
