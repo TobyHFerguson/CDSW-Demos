@@ -35,24 +35,11 @@
 # 
 # 
 
-from pyspark.sql import SparkSession
-spark = SparkSession\
-    .builder\
-    .config("spark.jars", "/home/sense/hail-all-spark.jar")\
-    .config("spark.submit.pyFiles", "/home/sense/hail-python.zip")\
-    .config("spark.hadoop.io.compression.codecs", "org.apache.hadoop.io.compress.DefaultCodec,is.hail.io.compress.BGzipCodec,org.apache.hadoop.io.compress.GzipCodec")\
-    .config("spark.sql.files.openCostInBytes", "1099511627776")\
-    .config("spark.sql.files.maxPartitionBytes", "1099511627776")\
-    .config("spark.hadoop.mapreduce.input.fileinputformat.split.minsize", "1099511627776")\
-    .config("spark.hadoop.parquet.block.size", "1099511627776")\
-    .appName("Hail")\
-    .getOrCreate()
-sc = spark.sparkContext
 import sys
 sys.path.append('/home/sense/hail-python.zip')
 
 from hail import *
-hc = HailContext(sc)
+hc = HailContext()
 
 # 
 # If there is no error, you're ready to start using Hail! Otherwise, make sure that the `export` variables are correctly set and appropriate versions of all dependencies are installed.
