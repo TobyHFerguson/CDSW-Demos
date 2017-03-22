@@ -16,6 +16,9 @@ This repo contains the [Hail Tutorial](https://hail.is/hail/tutorial.html), ligh
 
 <b>Estimated Runtime</b>: 
 
+<b>Notes</b>:<br>
+1. HAIL requires java version 8. <br>
+
 <b>Recommended Jobs/Pipeline</b>:
 None
 
