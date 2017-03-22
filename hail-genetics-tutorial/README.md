@@ -1,21 +1,25 @@
 # Hail tutorial
+Created by Tom White (tom@cloudera.com)
 
 [Hail](https://hail.is) is an open-source, scalable framework for exploring and analyzing genetic data.
 This repo contains the [Hail Tutorial](https://hail.is/hail/tutorial.html), lightly reformatted to run in Cloudera Data Science Workbench.
 
-To run, open _tutorial.py_ in Cloudera Data Science Workbench and click the run icon.
+<b>Status</b>: In Progress <br>
+<b>Use Case</b>: Genetics
 
-Once you've finished, run the _cleanup.sh_ script to remove data created by the tutorial.
+<b>Steps</b>:<br>
+1. Open a CDSW terminal and run setup.sh <br>
+2. Create a Python Session and run tutorial.py <br>
+5. When finished, run cleanup.sh in the terminal<br> 
 
-### How the CDSW version was created
+<b>Recommended Session Sizes</b>:
 
-The original Hail tutorial IPython notebook was converted to markdown using the following commands.
+<b>Estimated Runtime</b>: 
 
-```bash
-ipython nbconvert --to markdown python/hail/docs/tutorial.ipynb
-sed -i -e 's/^/# /' tutorial.md
-```
+<b>Recommended Jobs/Pipeline</b>:
+None
 
-Then the contents of _tutorial.md_ was pasted into _tutorial.py_, and Python code sections
-(in triple backticks) were converted to be simple inline code, with no markup. Shell commands were
-converted to use the `! <command>` syntax. 
+<b>Demo Script</b>
+TBD
+
+<b>Related Content</b>:
