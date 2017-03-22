@@ -8,16 +8,17 @@ This repo contains the [Hail Tutorial](https://hail.is/hail/tutorial.html), ligh
 <b>Use Case</b>: Genetics
 
 <b>Steps</b>:<br>
-1. Open a CDSW terminal and run setup.sh <br>
-2. Create a Python Session and run tutorial.py <br>
-5. When finished, run cleanup.sh in the terminal<br> 
+1. Go to Project > Settings > Environment > Spark Configuration: hail-genetics-tutorial/spark-defaults.conf 
+2. Open a CDSW terminal and run setup.sh <br>
+3. Create a Python Session and run tutorial.py <br>
+4. When finished, run cleanup.sh in the terminal<br> 
 
 <b>Recommended Session Sizes</b>:
 
 <b>Estimated Runtime</b>: 
 
 <b>Notes</b>:<br>
-1. HAIL requires java version 8. <br>
+1. HAIL requires java version 8. If you are running multiple versions on java on your system, you can set the Project Setting's Environmental Varaiables for JAVA_HOME, PATH, etc.<br>
 
 <b>Recommended Jobs/Pipeline</b>:
 None
