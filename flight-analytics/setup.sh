@@ -1,5 +1,5 @@
-mkdir /data
-cd /data
+mkdir flight-analytics/data
+cd flight-analytics/data
 
 wget https://ibis-resources.s3.amazonaws.com/data/airlines/airlines_parquet.tar.gz
 tar xvzf airlines_parquet.tar.gz
@@ -11,3 +11,5 @@ hadoop fs -mkdir /tmp/airports
 hadoop fs -put airports.csv /tmp/airports/
 
 hadoop fs -chmod 777 /tmp/airlines /tmp/airports
+
+rm -rf flight-analytics/data
