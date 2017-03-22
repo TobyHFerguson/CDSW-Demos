@@ -25,9 +25,9 @@ data-processing.scala --> analysis.py --> machine-learning.scala
 5. Your user will need write access into Hive. <br>
 
 <b>Estimated Runtime</b>: <br>
-data-processing.scala --> approx 1 min
-analysis.py --> < 1 min
-machine-learning.scala --> approx 30 min
+data-processing.scala --> approx 1 min <br>
+analysis.py --> < 1 min <br>
+machine-learning.scala --> approx 30 min <br>
 
 <b>Demo Script</b><br>
 http://github.mtv.cloudera.com/foe/BasketballStats/blob/master/BasketballStatsDemoScript.docx
