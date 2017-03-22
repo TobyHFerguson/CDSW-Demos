@@ -13,11 +13,11 @@ and Spark MlLib's pipeline API for cross validation and model tuning. The Pipeli
 
 <b>Recommended Session Sizes</b>: 2 CPU, 4 GB RAM
 
+<b>Estimated Runtime</b>: <br>
+ds-for-telco.py --> approx 1 min 
+
 <b>Recommended Jobs/Pipeline</b>:<br>
 None
-
-<b>Notes</b>: <br>
-1. Raw stats are in /data<br>
 
 <b>Demo Script</b><br>
 TBD
