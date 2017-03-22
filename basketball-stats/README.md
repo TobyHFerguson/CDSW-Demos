@@ -6,7 +6,7 @@ Created by Jordan Volz (jordan.volz@cloudera.com)
 <b>Use Case</b>: End-to-end spark workflow: data processing, ad-hoc analytics, and predictive analytics
 
 <b>Steps</b>:<br>
-1. Open a terminal and run setup.sh<br>
+1. Open a CDSW terminal and run setup.sh<br>
 2. Create a Scala Session and run data-processing.scala<br>
 3. Create a Python Session and run analysis.py<br>
 4. Return to the Scala Session and run machine-learning.scala<br>
