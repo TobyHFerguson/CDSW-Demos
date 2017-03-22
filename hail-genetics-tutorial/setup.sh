@@ -1,7 +1,8 @@
 # ## Download tutorial data files
 # 
 # Download the zip file *Hail_Tutorial_Data-v2.tgz* using [wget](https://www.google.com/search?q=install+wget) or [curl](https://www.google.com/search?q=install+curl):
- 
+
+cd hail-genetics-tutorial 
 wget https://storage.googleapis.com/hail-tutorial/Hail_Tutorial_Data-v2.tgz
 
 # Unzip the file:
