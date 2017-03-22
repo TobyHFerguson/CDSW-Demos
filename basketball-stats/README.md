@@ -24,6 +24,11 @@ data-processing.scala --> analysis.py --> machine-learning.scala
 4. machine-learning.scala --> Regression analysis with spark mllib<br>
 5. Your user will need write access into Hive. <br>
 
+<b>Estimated Runtime</b>: <br>
+data-processing.scala --> approx 1 min
+analysis.py --> < 1 min
+machine-learning.scala --> approx 30 min
+
 <b>Demo Script</b><br>
 http://github.mtv.cloudera.com/foe/BasketballStats/blob/master/BasketballStatsDemoScript.docx
 
