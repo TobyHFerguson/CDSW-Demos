@@ -5,6 +5,7 @@ library(geosphere)
 library (DBI)
 
 ## Loading required package: sparklyr + dplyr
+
 library(sparklyr)
 library(dplyr)
 
@@ -18,7 +19,8 @@ spark_home <- "/opt/cloudera/parcels/SPARK2/lib/spark2"
 spark_version <- "2.0.0"
 sc <- spark_connect(master="yarn-client", version=spark_version, config=config, spark_home=spark_home)
 
-dbSendQuery(sc,"CREATE EXTERNAL TABLE IF NOT EXISTS airports_new_pq (   iata STRING,    airport STRING,    city STRING,    state STRING,    country STRING,    latitude DOUBLE,    longitude DOUBLE) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' STORED AS TEXTFILE LOCATION '/tmp/airports/'")
+dbSendQuery(sc,"CREATE EXTERNAL TABLE IF NOT EXISTS airports_str (   iata STRING,    airport STRING,    city STRING,    state STRING,    country STRING,    latitude DOUBLE,    longitude DOUBLE) ROW FORMAT  SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde' STORED AS TEXTFILE LOCATION '/tmp/airports/' TBLPROPERTIES('skip.header.line.count'='1')")
+dbSendQuery(sc,"create table if not exists airports as (select iata, city, state, country, cast(latitude as double), cast (longitude as double) from airports_str)")
 dbSendQuery(sc,"CREATE EXTERNAL TABLE IF NOT EXISTS airlines_bi_pq ( year INT, month INT, day INT, dayofweek INT, dep_time INT, crs_dep_time INT, arr_time INT, crs_arr_time INT, carrier STRING, flight_num INT, tail_num INT, actual_elapsed_time INT, crs_elapsed_time INT, airtime INT, arrdelay INT, depdealay INT, origin STRING, dest STRING, distance INT, taxi_in INT, taxi_out INT, cancelled INT, cancellation_code STRING, diverted INT, carrier_delay INT, weather_delay INT, nas_delay INT, security_delay INT, late_aircraft_delay INT, date_yyyymm STRING) STORED AS PARQUET LOCATION '/tmp/airlines'")
 
 airlines <- tbl(sc, "airlines_bi_pq")
@@ -63,7 +65,7 @@ plot(g)
 flights <- airlines %>% group_by(year, carrier, origin, dest) %>% summarise(count=n()) %>% collect
 flights
 
-airports <- tbl(sc, "airports_new_pq") %>% collect
+airports <- tbl(sc, "airports") %>% collect
 
 #Now we extract AA’s flight in 2007.
 
@@ -92,4 +94,3 @@ for (j in 1:length(flights_aa$carrier)) {
   
   lines(inter, col=colors[colindex], lwd=0.8)
 }
-
