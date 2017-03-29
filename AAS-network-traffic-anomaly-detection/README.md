@@ -1,5 +1,5 @@
 # Advanced Analytics with Spark - Anomaly Detection in Network Traffic
-Created by Sean Owen + Nisha Mukteward (sowen@cloudera.com, nisha@cloudera.com)<br>
+Created by Sean Owen + Nisha Muktewar (sowen@cloudera.com, nisha@cloudera.com)<br>
 This project demonstrates using k-means cluster to detect anomalies in network traffic using Apache Spark and Spark MLLib
 
 <b>Status</b>: Demo Ready<br>
