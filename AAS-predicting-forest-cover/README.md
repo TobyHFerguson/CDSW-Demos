@@ -1,5 +1,5 @@
 # Advanced Analytics with Spark - Predicting Forest Cover
-Created by Sean Owen + Nisha Mukteward (sowen@cloudera.com, nisha@cloudera.com)<br>
+Created by Sean Owen + Nisha Muktewar (sowen@cloudera.com, nisha@cloudera.com)<br>
 This project demonstrates using random forests to predict forest cover using Apache Spark and Spark MLLib
 
 <b>Status</b>: Demo Ready<br>
