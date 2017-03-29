@@ -1,4 +1,29 @@
 # GERMAN CREDIT
+German Credit <br>
+Created by Brad Barker (barker@cloudera.com)
+
+<b>Status</b>: In Progress<br>
+<b>Use Case</b>: German Credit
+
+<b>Steps</b>:<br>
+
+
+<b>Recommended Session Sizes</b>:
+
+<b>Recommended Jobs/Pipeline</b>:<br>
+NA
+
+<b>Notes</b>: <br>
+
+
+<b>Estimated Runtime</b>: <br>
+
+
+<b>Demo Script</b><br>
+
+<b>Related Content</b>:<br>
+
+<hr>
 
 The german credit analysis is to show some functions being evaluated for use in SA analytic engamgents including:
 
