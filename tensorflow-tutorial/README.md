@@ -5,11 +5,12 @@ Note that this project simply shows how to use tensorflow in python. It's meant 
 <b>Status</b>: Demo Ready<br>
 <b>Use Case</b>: Computer vision using softmax. Standard tensforflow demo. 
 
-<b>Steps</b>:<br>
-1. Open a CDSW terminal and run setup.sh<br>
-2. Create a Python Session and run tf-tutorial.py<br>
-
 <b>Recommended Session Sizes</b>: 1 CPU, 2 GB RAM
+
+## Steps:
+1. Create a Python Session and `!pip install -r tensorflow-tutorial/requirements.txt`
+2. Run tf-tutorial.py
+
 
 <b>Recommended Jobs/Pipeline</b>:<br>
 NA
