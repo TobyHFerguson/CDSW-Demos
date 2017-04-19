@@ -17,8 +17,8 @@ stopwords = set(STOPWORDS)
 stopwords.add("said")
 
 counts = text_file.flatMap(lambda line: line.split(" ")) \
-             .map(lambda word: (word.lower(), 1)) \
              .filter(lambda word: word not in stopwords) \
+             .map(lambda word: (word.lower(), 1)) \
              .reduceByKey(lambda a, b: a + b)
 
 from pyspark.sql.types import *
