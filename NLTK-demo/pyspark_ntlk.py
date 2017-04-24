@@ -2,7 +2,7 @@ import os
 import sys
 from pyspark.sql import SparkSession
 
-!hdfs dfs -rm -r nixon_token*
+!hdfs dfs -rm -r /tmp/nixon_token*
 
 spark = SparkSession.builder \
           .appName("spark-nltk") \
@@ -19,7 +19,7 @@ def pos_tag(x):
     return nltk.pos_tag([x])
 
 words = data.flatMap(word_tokenize)
-words.saveAsTextFile('nixon_tokens')
+words.saveAsTextFile('/tmp/nixon_tokens')
 
 pos_word = words.map(pos_tag)
 pos_word.saveAsTextFile('/tmp/nixon_token_pos')
