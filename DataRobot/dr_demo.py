@@ -15,7 +15,7 @@ train_df=diabetes_df[:10000]
 test_df=diabetes_df[10000:]
 
 #Connecting to DataRobot + Starting a project
-your_token="oIQ3yGEfpk0vOJRm_cWbYl3BCGMxsyqK"
+your_token="<YOUR_API_TOKEN>"
 dr.Client(token=your_token, endpoint='https://app.datarobot.com/api/v2')
 project = dr.Project.start(train_df,project_name='My first project',target='readmitted', worker_count=4)
 
