@@ -2,7 +2,7 @@
 Created by Samir Gupta (sgupta@cloudera.com)
 Original Demo Repo: https://github.com/tomatoTomahto/CDH-Sensor-Analytics
 
-For information on use case and technical architecture, see PDF in ```slides``` directory. 
+For information on use case and technical architecture, see PDF presentation in ```slides``` directory. 
 
 ## Pre-Requisites
 1. CDH 5.10, including the following services:
@@ -27,7 +27,7 @@ For information on use case and technical architecture, see PDF in ```slides``` 
 ## Data Science
 1. In the Cloudera Data Science Workbench, create a new project using this git repository
 2. Add spark-defaults.conf to the project environment settings
-3. Create a workbench with at least 2 cores and 8GB RAM using PySpark
+3. Create a workbench with at least 4 cores and 8GB RAM using PySpark
 4. Run the cdsw/SensorAnalytics_kudu.py script
 
 ## Real-time Ingest (optional)

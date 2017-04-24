@@ -36,24 +36,24 @@ from IPython.display import Image
 # and analyze unlimited amounts of data using a scalable architecture, any kind of data 
 # (structured or un-structured) using flexible storage formats, and perform large-scale
 # visual and predictive analytics on that data using community-driven analytics frameworks.
-Image(filename="img/cloudera.png")
+Image(filename="predictive-maintenance/img/cloudera.png")
 # The Cloudera Enterprise Data Hub is a platform built on open-source technology that 
 # provides all the benefits outlined above with the added capabilities of enterprise
 # grade security, management, and data analytics tooling that organizations require. 
 # The architecture below illustrates how easy a use case like predictive maintenance is
 # using the Cloudera technology stack. 
-Image(filename="img/architecture.png")
+Image(filename="predictive-maintenance/img/architecture.png")
 
 # ### The Frameworks
 # #### Apache Spark
-Image(filename="img/spark.png")
+Image(filename="predictive-maintenance/img/spark.png")
 # Apache Spark is a fast and general engine for large-scale data processing that enables:
 # * Fast Analytics - Spark runs programs up to 100x faster than Hadoop MapReduce in memory, or 10x faster on disk.
 # * Easy Data Science - With APIs in Java, Scala, Python, and R, it's easy to build parallel apps.
 # * General Processing - Spark's libraries enable SQL and DataFrames, machine learning, graph processing, and stream processing.
 
 # #### Apache Impala
-Image(filename='img/impala.png')
+Image(filename='predictive-maintenance/img/impala.png')
 # Apache Impala is the open source, native analytic database for Apache Hadoop. Impala 
 # is shipped by Cloudera, MapR, Oracle, and Amazon and enables:
 # * BI-style Queries on Hadoop - low latency and high concurrency for BI/analytic queries on Hadoop
@@ -61,7 +61,7 @@ Image(filename='img/impala.png')
 # * Huge BI Tool Ecosystem - all leading BI, visualization and analytics tools integrate with Impala
 
 # #### Apache Kudu
-Image(filename='img/kudu.png')
+Image(filename='predictive-maintenance/img/kudu.png')
 # Apache Kudu is a scalable storage engine capable of ingesting and updating real-time data while
 # enabling large-scale machine learning and deep analytics on that data. It's capabilities include:
 # * Streamlined Architecture - fast inserts/updates and efficient columnar scans to enable multiple real-time analytic workloads across a single storage layer. 
@@ -79,8 +79,9 @@ Image(filename='img/kudu.png')
 # ## Setup Tasks
 # * Install Python packages used by the demo
 !conda install -y ConfigParser
+!conda install -y seaborn
 !hdfs dfs -rm -r -f sampledata
-!hdfs dfs -put sampledata
+!hdfs dfs -put predictive-maintenance/sampledata
 
 # ## Initialization
 # ### Spark Library Imports
@@ -185,11 +186,11 @@ def f(clusterDistribution):
 findCluster = F.udf(f, StringType())
 maintTypes = ldaModel.transform(maintVectors)\
   .select('date',findCluster('topicDistribution').alias('maintenanceType'), 'duration')
-
+maintTypes.show()
 maintClusters = maintTypes.join(maintCosts, 'date')\
   .select('maintenanceType', 'cost', 'duration')\
   .toPandas()
-
+  
 from scipy.stats import kendalltau
 sb.set(style="ticks")
 sb.jointplot(maintClusters['cost'], maintClusters['duration'], 
@@ -239,7 +240,7 @@ corrMaint = maintTypes.filter('maintenanceType=="Corrective"')\
 
 rawSensorsByMaint = progPrevMaint.union(corrMaint)
 
-sb.swarmplot(y='sensor_name', x='value', hue='maintenanceType', 
+sb.stripplot(y='sensor_name', x='value', hue='maintenanceType', jitter=True,
              data=rawSensorsByMaint.filter('year(date)>=2016').select('sensor_name', 'value', 'maintenanceType').toPandas())
 
 # ### Spark Machine Learning Capabilities
@@ -265,7 +266,7 @@ sb.swarmplot(y='sensor_name', x='value', hue='maintenanceType',
 # in order to reduce the risk of model overfitting. The spark.ml implementation 
 # supports random forests for binary and multiclass classification and for regression, 
 # using both continuous and categorical features.
-Image(filename="img/decision_tree.png")
+Image(filename="predictive-maintenance/img/decision_tree.png")
 # First let's import the Spark ML libraries
 from pyspark.ml import Pipeline
 from pyspark.ml.classification import RandomForestClassifier, RandomForestClassificationModel
@@ -338,7 +339,7 @@ sb.barplot(x="Importance (%)", y="Sensor",
            data=sensorImportancesPD,
            label="Total", color="b")
 
-# We can also graph the correlation matrix for the sensors - TODO
+# We can also graph the correlation matrix for the sensors
 meas = rawMeasurements.filter(F.year('record_time')>2016)\
   .groupBy('record_time')\
   .pivot('sensor_name')\
@@ -449,4 +450,4 @@ maintTypes = ldaModel.transform(maintVectors)\
   .select('date',findCluster('topicDistribution').alias('maintenanceType'), 'duration')
   
 # That's it! We have successfully built a machine learning model that predicts with over
-# 95% accuracy whether maintenance needs to be done on our asset using sensor data. 
+# 90% accuracy whether maintenance needs to be done on our asset using sensor data. 
