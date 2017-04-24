@@ -9,7 +9,7 @@ and Spark MlLib's pipeline API for cross validation and model tuning. The Pipeli
 <b>Steps</b>:<br>
 1. Open a terminal and run setup.sh<br>
 2. Create a Python Session and run ds-for-telco.py<br>
-5. When finished, run cleanup.sh in the terminal<br>
+3. When finished, run cleanup.sh in the terminal<br>
 
 <b>Recommended Session Sizes</b>: 2 CPU, 4 GB RAM
 
