@@ -17,8 +17,7 @@ python -m nltk.downloader -d nltk_data all
 hdfs dfs -put nltk_data/corpora/state_union/1970-Nixon.txt /tmp/
 
 # archive for distribution
-cd nltk_data/tokenizers/
-zip -r ../../tokenizers.zip *
-cd ~/
-cd nltk_data/taggers/
-zip -r ../../taggers.zip *
+cd ~/NLTK-demo/nltk_data/tokenizers/
+zip -r ../../../tokenizers.zip *
+cd ~/NLTK-demo/nltk_data/taggers/
+zip -r ../../../taggers.zip *
