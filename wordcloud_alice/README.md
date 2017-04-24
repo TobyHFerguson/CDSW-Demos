@@ -7,6 +7,6 @@ This code is inspired from https://github.com/amueller/word_cloud/blob/master/ex
 ## Pre requisites
 
 1. Open workbench with Python engine
-2. Run `setup.sh` on your terminal or `!./setup.sh` on your console
-3. Install dependent packages `! pip install -r requirements.txt`
+2. Run `cd wordcloud_alice && setup.sh` on your terminal or `! wordcloud_alice/setup.sh` on your console
+3. Install dependent packages `! pip install -r wordcloud_alice/requirements.txt`
 4. Run `word_cloud.py` with your workbench
