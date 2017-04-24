@@ -7,7 +7,7 @@ conda create -n nltk_env --copy -y -q python=2 nltk numpy
 source activate nltk_env
 
 cd ~/.conda/envs/
-zip -r ../nltk_env.zip nltk_env
+zip -r ../../NLTK-demo/nltk_env.zip nltk_env
 
 
 cd ~/NLTK-demo
