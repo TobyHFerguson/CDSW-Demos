@@ -9,7 +9,7 @@ import datarobot as dr
 import pandas as pd
 
 #We'll train with the first 10k data points, then use the rest to test our model. 
-diabetes_df=pd.read_csv('dataset_diabetes/diabetic_data.csv')
+diabetes_df=pd.read_csv('DataRobot/dataset_diabetes/diabetic_data.csv')
 diabetes_df['readmitted'][diabetes_df['readmitted'] != 'NO'] = 'YES'
 train_df=diabetes_df[:10000]
 test_df=diabetes_df[10000:]
