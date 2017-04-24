@@ -1,4 +1,4 @@
-# ds-for-telco
+# NLTK Demo
 Created by Aki Ariga (aki@cloudera.com)<br>
 This demonstrates how to distribute libraries out the worker nodes without having them pre-installed on the nodes. In this instance, we'll distribute the NLTK library. 
 
