@@ -10,15 +10,15 @@ Currently the following demos are in good working order and recommended for use:
 6) tensorflow-tutorial<br>
 7) DataRobot <br>
 8) NLTK-demo <br>
+9) wordcloud_alice <br>
 
 The following are currently In-Progess. They are close to being ready but may require some additional work not documented in the readme.md to get working. Try with caution: <br>
 1) hail-genetics-tutorial<br>
 2) ibis-test<br>
-3) wordcloud_alice <br>
-4) PolyReg-demo <br>
-5) Predictive Maintenance <br>
-6) Shiny-demo<br>
-7) German Credit <br>
+3) PolyReg-demo <br>
+4) Predictive Maintenance <br>
+5) Shiny-demo<br>
+6) German Credit <br>
 
 If you have a cool demo that you think may be of interest to the field, or shows off a cool feature we don't have above, please push it into this repo. The more the merrier! We only ask that you adhere to the recommend structure below to help make it easy for users to use the demos. 
 
