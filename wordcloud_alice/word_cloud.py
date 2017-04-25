@@ -36,7 +36,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # 
-alice_mask = np.array(Image.open(path.join("resources", "alice-mask.jpg")))
+alice_mask = np.array(Image.open(path.join("wordcloud_alice/resources", "alice-mask.jpg")))
 
 wc = WordCloud(background_color="white", max_words=2000, mask=alice_mask,
                stopwords=stopwords)
