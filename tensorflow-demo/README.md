@@ -1,11 +1,19 @@
 # TensorFlow on Cloudera Data Science Workbench
 
-Cloudera Data Science Workbench comes pre-installed with TensorFlow. This short demo
-shows how to use TensorFlow to run single-node training on a cluster edge node using
-Cloudera Data Science Workbench.
+This short demo shows how to use TensorFlow to run single-node training on a cluster
+edge node using Cloudera Data Science Workbench.
 
 The cases of running single node training on the cluster, and distributed training on
 the cluster are not covered here.
+
+## Preliminaries
+
+Install TensorFlow:
+
+```
+! pip install tensorflow
+%cd tensorflow-demo
+```
 
 ## Reading data from local files
 
@@ -58,7 +66,7 @@ program.
 %env HADOOP_HDFS_HOME=/opt/cloudera/parcels/CDH/lib/hadoop-hdfs
 %env LD_LIBRARY_PATH=/opt/cloudera/parcels/CDH/lib/hadoop/lib/native:/opt/cloudera/parcels/GPLEXTRAS/lib/hadoop/lib/native:/opt/cloudera/parcels/CDH/lib64/:/usr/java/jdk1.8.0_40-cloudera/jre/lib/amd64/server
 
-! CLASSPATH=$(hadoop classpath --glob) python fully_connected_reader.py --train_dir hdfs://bottou02.sjc.cloudera.com/user/$USER/mnist
+! CLASSPATH=$(hadoop classpath --glob) python fully_connected_reader.py --train_dir hdfs://bottou02.sjc.cloudera.com/user/$HADOOP_USER_NAME/mnist
 ```
 
 Notice that you need to set several environment variables for TensorFlow to connect to HDFS.
