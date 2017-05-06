@@ -160,16 +160,13 @@ corr = sample_data[["account_length", "number_vmail_messages", "total_day_minute
 sb.heatmap(corr)
 
 
-# Let's generate a pair plot for all numerical variables that we have.
+# The heatmap shows which features we can eliminate due to high correlation. We then get the following:
 
-# In[11]:
 
 reduced_numeric_cols = ["account_length", "number_vmail_messages", "total_day_calls",
                         "total_day_charge", "total_eve_calls", "total_eve_charge",
                         "total_night_calls", "total_night_charge", "total_intl_calls", 
                         "total_intl_charge","number_customer_service_calls"]
-
-sb.pairplot(sample_data[reduced_numeric_cols + ['churned']], hue="churned", palette='Paired')
 
 
 # # Build a classification model using MLLib
@@ -286,6 +283,6 @@ auroc = evaluator.evaluate(predictions, {evaluator.metricName: "areaUnderROC"})
 
 # If you need to inspect the predictions...
 
-#predictions.toPandas().head(25)
+predictions.select('label','prediction','probability').filter('prediction = 1').show(50)
 
 
