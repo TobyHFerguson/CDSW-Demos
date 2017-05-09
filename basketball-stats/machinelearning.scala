@@ -129,4 +129,6 @@ for (stat <- statArray){
 val regression_total=spark.sql("select zfg_temp.name, zfg_temp.year, z3p_temp.prediction + zfg_temp.prediction + zft_temp.prediction + ztrb_temp.prediction + zast_temp.prediction + zstl_temp.prediction + zblk_temp.prediction + ztov_temp.prediction + zpts_temp.prediction as prediction, z3p_temp.label + zfg_temp.label + zft_temp.label + ztrb_temp.label + zast_temp.label + zstl_temp.label + zblk_temp.label + ztov_temp.label + zpts_temp.label as label from z3p_temp, zfg_temp, zft_temp, ztrb_temp, zast_temp, zstl_temp, zblk_temp, ztov_temp, zpts_temp where zfg_temp.name=z3p_temp.name and z3p_temp.name=zft_temp.name and zft_temp.name=ztrb_temp.name and ztrb_temp.name=zast_temp.name and zast_temp.name=zstl_temp.name and zstl_temp.name=zblk_temp.name and zblk_temp.name=ztov_temp.name and ztov_temp.name=zpts_temp.name")
 regression_total.write.mode("overwrite").saveAsTable("basketball.regression_total")
 
+spark.sql("Select * from basketball.regression_total order by prediction desc").show(100)
+
 
