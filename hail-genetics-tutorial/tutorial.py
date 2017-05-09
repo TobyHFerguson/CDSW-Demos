@@ -9,7 +9,7 @@
 # 
 
 import sys
-sys.path.append('/home/sense/hail-python.zip')
+sys.path.append('/home/cdsw/hail-genetics-tutorial/hail-python.zip')
 
 from hail import *
 hc = HailContext()
@@ -71,8 +71,8 @@ vds = vds.annotate_samples_table('Hail_Tutorial-v2/1000Genomes.sample_annotation
 # 
 # 
 
-out_path = '1kg.vds'
-vds.write(out_path)
+#out_path = '1kg.vds'
+#vds.write(out_path)
 
 # 
 # ## Start exploring
@@ -81,7 +81,7 @@ vds.write(out_path)
 # 
 # 
 
-vds = hc.read(out_path)
+#vds = hc.read(out_path)
 
 # 
 # First, we'll print some statistics about the size of the dataset using `count`:
