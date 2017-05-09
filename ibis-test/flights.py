@@ -1,7 +1,3 @@
-!conda install -y ibis-framework -c conda-forge
-!pip install thrift_sasl
-!pip install requests-kerberos
-
 import ibis
 import os
 ibis.options.interactive = True
