@@ -78,7 +78,6 @@ Image(filename='predictive-maintenance/img/kudu.png')
 # # Demo Start
 # ## Setup Tasks
 # * Install Python packages used by the demo
-!conda install -y ConfigParser
 !conda install -y seaborn
 !hdfs dfs -rm -r -f sampledata
 !hdfs dfs -put predictive-maintenance/sampledata
@@ -98,7 +97,7 @@ import matplotlib.pyplot as plt
 import seaborn as sb
 import numpy as np
 import pandas as pd
-import ConfigParser
+
 
 # ### Create a Spark Session
 spark = SparkSession.builder.appName("Sensor Analytics").getOrCreate()
