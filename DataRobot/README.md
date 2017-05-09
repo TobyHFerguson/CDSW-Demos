@@ -6,6 +6,7 @@ This notebook shows a very basic workflow using DataRobot’s Python SDK. Note t
 <b>Use Case</b>: Diabetes Readmission Prediction
 
 <b>Steps</b>:<br>
+0. In Project > Settings > Engine, add a DR_API_TOKEN environment variable with your DR API token. 
 1. Open a terminal and run setup.sh<br>
 2. Create a Python Session and run dr_demo.py<br>
 
